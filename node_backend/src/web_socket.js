@@ -19,9 +19,10 @@ const startWebSocketServer = () => {
 
 
 let lastUrl = null;
-let id = 1;
+let id = 1
 
-const urlToFileIdMap={}//new code maping between urls and id
+
+//const urlToFileIdMap={}//new code maping between urls and id
 const processPayload = (payload) => {
   const { type, url, data } = payload;
   console.log("*".repeat(80));
@@ -40,10 +41,10 @@ const processPayload = (payload) => {
     fs.writeJsonSync(dataFilePath, jsonData, { flag: 'a' });
   } 
   else {
-   // id++;
+      id++;
     dataFilePath = path.join(dataFolderName, id.toString());
-    fs.writeJSONSync(dataFilePath,jsonData)
-     //  id++;
+    fs.writeJSONSync(dataFilePath,jsonData,{flag:'a'})
+      // id++;
   }
   lastUrl = url;
 

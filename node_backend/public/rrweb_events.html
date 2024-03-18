@@ -29,7 +29,9 @@
     const apiUrl = `http://localhost:3000/api-rrweb-events?id=${id}`
     fetch(apiUrl)
     .then(response => response.json())
+    
     .then(data => {
+
       new rrwebPlayer({
         target: document.getElementById("replay_video"), // customizable root element
         props: {
